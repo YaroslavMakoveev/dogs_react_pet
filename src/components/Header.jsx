@@ -11,7 +11,7 @@ const Header = () => {
       <header className="header">
         <div className="container">
           <div className="header__inner">
-            <a href="/" className="logo">
+            <a href="/dogs_react_pet" className="logo">
               The Dogs API
             </a>
             <button className="favorites__btn" onClick={() => goToFav()}>
