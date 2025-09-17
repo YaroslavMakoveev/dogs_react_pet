@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const FavoritesPage = () => {
   const [fav, setFav] = useState(() => {
@@ -66,6 +67,7 @@ const FavoritesPage = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

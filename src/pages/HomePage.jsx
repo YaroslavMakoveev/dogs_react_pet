@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import GetDog from "../components/GetDog";
 import Header from "../components/Header";
 
@@ -6,6 +7,7 @@ const HomePage = () => {
     <>
       <Header />
       <GetDog />
+      <Footer />
     </>
   );
 };
