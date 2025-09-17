@@ -250,19 +250,19 @@
   justify-content: center;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1324px) {
   .fav__container {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 978px) {
   .fav__container {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 591px) {
+@media (max-width: 640px) {
   .fav__container {
     grid-template-columns: 1fr;
   }
