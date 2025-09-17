@@ -33,6 +33,10 @@ const GetDog = () => {
     setFav(fav.filter((item) => item.message !== dog.message));
   };
 
+  const removeAll = () => {
+    setFav([]);
+  };
+
   useEffect(() => {
     localStorage.setItem("favDogs", JSON.stringify(fav));
   }, [fav]);
@@ -72,6 +76,12 @@ const GetDog = () => {
               </button>
             </div>
           </div>
+
+          {fav.length >= 1 && (
+            <div className="remove__all__btn">
+              <button onClick={() => removeAll()}>Remove all</button>
+            </div>
+          )}
 
           <div className="fav__container">
             {fav.slice(0, 8).map((favDog) => (
