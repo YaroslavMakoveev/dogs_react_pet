@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Header = () => {
-  const navigate = useNavigate("");
+  const navigate = useNavigate();
 
   const goToFav = () => {
     navigate("/favorites");
@@ -11,9 +11,9 @@ const Header = () => {
       <header className="header">
         <div className="container">
           <div className="header__inner">
-            <a href="/dogs_react_pet" className="logo">
+            <Link to="/" className="logo">
               The Dogs API
-            </a>
+            </Link>
             <button className="favorites__btn" onClick={() => goToFav()}>
               Favorites
             </button>
