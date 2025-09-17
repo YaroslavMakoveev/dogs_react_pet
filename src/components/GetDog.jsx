@@ -4,6 +4,7 @@ import minus from "../assets/icons/minus.png";
 
 const GetDog = () => {
   const [dog, setDog] = useState({});
+  const [fav, setFav] = useState([]);
 
   const getDog = async () => {
     try {
@@ -14,6 +15,22 @@ const GetDog = () => {
       console.log(error);
     }
   };
+
+  const addToFav = (dog) => {
+    if (fav.some((favDog) => favDog.message === dog.message)) {
+      alert("Картинка уже в избранном");
+    } else {
+      setFav([...fav, dog]);
+    }
+  };
+
+  const removeFromFav = (dog) => {
+    setFav(fav.filter((item) => item.message !== dog.message));
+  };
+
+  useEffect(() => {
+    console.log(fav);
+  }, [fav]);
 
   useEffect(() => {
     getDog();
@@ -30,7 +47,19 @@ const GetDog = () => {
                 Get Dog
               </button>
               <button className="fav__btn">
-                <img src={plus} alt="plus" />
+                {fav.some((favDog) => favDog.message === dog.message) ? (
+                  <>
+                    <img
+                      src={minus}
+                      alt="minus"
+                      onClick={() => removeFromFav(dog)}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <img src={plus} alt="plus" onClick={() => addToFav(dog)} />
+                  </>
+                )}
               </button>
             </div>
           </div>
