@@ -4,7 +4,10 @@ import minus from "../assets/icons/minus.png";
 
 const GetDog = () => {
   const [dog, setDog] = useState({});
-  const [fav, setFav] = useState([]);
+  const [fav, setFav] = useState(() => {
+    const saved = localStorage.getItem("favDogs");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   const getDog = async () => {
     try {
@@ -27,6 +30,10 @@ const GetDog = () => {
   const removeFromFav = (dog) => {
     setFav(fav.filter((item) => item.message !== dog.message));
   };
+
+  useEffect(() => {
+    localStorage.setItem("favDogs", JSON.stringify(fav));
+  }, [fav]);
 
   useEffect(() => {
     console.log(fav);
@@ -62,6 +69,19 @@ const GetDog = () => {
                 )}
               </button>
             </div>
+          </div>
+
+          <div className="fav__container">
+            {fav.map((favDog) => (
+              <div className="fav__card">
+                <img
+                  src={`${favDog.message}`}
+                  alt="dsf"
+                  className="fav__dog__img"
+                />
+                <button className="delete__favDog">Delete</button>
+              </div>
+            ))}
           </div>
         </div>
       </div>
