@@ -75,7 +75,8 @@
 }
 
 .dog__card {
-  width: 440px;
+  max-width: 440px;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -141,7 +142,6 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
 
   margin-top: 10px;
 }
@@ -152,11 +152,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
 
   border-radius: 20px;
 
+  gap: 10px;
+
   padding: 20px;
+  margin: 20px;
 }
 .fav__dog__img {
   width: 250px;
@@ -167,7 +169,7 @@
 }
 
 .delete__favDog {
-  width: 90%;
+  width: 250px;
   height: 30px;
 
   border-radius: 10px;
@@ -246,4 +248,39 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .fav__container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .fav__container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 591px) {
+  .fav__container {
+    grid-template-columns: 1fr;
+  }
+  .dog__card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .dog__card img {
+    width: 200px;
+    height: 150px;
+  }
+
+  .fav__btn img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .card__buttons {
+    width: 100%;
+  }
 }
