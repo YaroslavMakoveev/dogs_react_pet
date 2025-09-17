@@ -90,7 +90,6 @@ const GetDog = () => {
               </div>
             ))}
           </div>
-          {/* Кнопка появляется, если карточек >= 8 */}
           {fav.length >= 8 && (
             <div className="show__all__container">
               <button
