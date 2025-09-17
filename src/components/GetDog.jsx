@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import plus from "../assets/icons/plus.png";
 import minus from "../assets/icons/minus.png";
+import { useNavigate } from "react-router-dom";
 
 const GetDog = () => {
   const [dog, setDog] = useState({});
@@ -8,6 +9,7 @@ const GetDog = () => {
     const saved = localStorage.getItem("favDogs");
     return saved ? JSON.parse(saved) : [];
   });
+  const navigate = useNavigate("");
 
   const getDog = async () => {
     try {
@@ -72,17 +74,35 @@ const GetDog = () => {
           </div>
 
           <div className="fav__container">
-            {fav.map((favDog) => (
+            {fav.slice(0, 8).map((favDog) => (
               <div className="fav__card">
                 <img
                   src={`${favDog.message}`}
                   alt="dsf"
                   className="fav__dog__img"
                 />
-                <button className="delete__favDog">Delete</button>
+                <button
+                  className="delete__favDog"
+                  onClick={() => removeFromFav(favDog)}
+                >
+                  Delete
+                </button>
               </div>
             ))}
           </div>
+          {/* Кнопка появляется, если карточек >= 8 */}
+          {fav.length >= 8 && (
+            <div className="show__all__container">
+              <button
+                className="show__all__btn"
+                onClick={() => {
+                  navigate("/favorites");
+                }}
+              >
+                Go to Favorites page
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </main>

@@ -172,8 +172,31 @@
   border-radius: 10px;
   border: none;
 
-  background-color: #c8906d;
+  background-color: #9c0000;
   color: #fff;
 
   font-size: 18px;
+}
+
+.show__all__container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.show__all__btn {
+  background-color: #bb6c43;
+  color: #fff;
+
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 20px;
 }
